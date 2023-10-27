@@ -13,8 +13,7 @@ def main():
             print("Your password has been encoded and stored!")
             print()
         elif user_choice == 2:
-            #once decoder is added, remove hashtag below
-            #print(f"The encoded password is {''.join(current_password)}, and the original password is {decoder(current_password)}.")
+            print(f"The encoded password is {''.join(current_password)}, and the original password is {decoder(current_password)}.")
             print()
 
 
@@ -34,5 +33,20 @@ def encoder(user_input):
         elif password_list[i] == 9:
             password_list[i] = 2
     return password_list
+
+
+def decoder(password_list):
+    original_pass = ''
+    for i in password_list:
+        if i > 3:
+            i -= 3
+        elif i == 0:
+            i = 7
+        elif i == 1:
+            i = 8
+        elif i == 2:
+            i = 9
+        original_pass += str(i)
+    return original_pass
 
 
